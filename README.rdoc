@@ -1,11 +1,11 @@
 Started GET "/recipes/get_random_recipe" for ::1 at 2015-11-05 08:56:25 -0800
 # FunFinder
 
-This is an application to find events happening in your local community. 
+This is an application to find events happening in your local community.
 
 ## What You'll Need
 
-1. PostgreSQL 
+1. PostgreSQL
 2. Rails
 3. Bundler
 
@@ -29,14 +29,6 @@ This is an application to find events happening in your local community.
 ## History
 
 This project was started November 5th, 2015.
-
-## Credits
-
-Kelly Chess - Founder
-Tobias Brysiewicz 
-Scott Pelo
-Tyler Henderson
-Max Harvey
 
 ## License
 
