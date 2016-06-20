@@ -1,0 +1,28 @@
+<% if !@searchedUsers.nil? %>
+    <% if !@searchedUsers.empty? %>
+        <h3>Users(s) found:</h3>
+<br>
+        <div id="lightbox" class="row">
+            <% @searchedUsers.each do |user| %>
+              <div class="col-sm-6 col-md-3 col-lg-2 well">
+                <div class="portfolio-item">
+                  <a href="users/<%= user.id %>" >
+                    <div class="hover-bg">
+                        <div class="hover-text">
+                            <h4><%= user.username %></h4>
+                            <div class="clearfix"></div>
+                        </div>
+                  </a>
+                    <%= link_to image_tag(user.image.url(:large), :class => "img-responsive"), user %>
+                        <h4 class="text-center">Username: <%= user.username.titleize %></h4>
+
+                  </div>
+                </div>
+              </div>
+            <% end %>
+        </div>
+
+    <% else %>
+        <h3>No Users Found</h3>
+    <% end %>
+ <% end %>

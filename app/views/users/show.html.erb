@@ -1,0 +1,82 @@
+<div class="container view-profile">
+    <div class="row">
+        <div class="col-md-3 well">
+<!-- User's Account Data -->
+            <span>
+              <%= image_tag(@user.image.url(:med), alt:"Upload Image") %>
+            </span>
+            <h4>Username: <%= @user.username %></h4>
+            <h4>Email: <%= @user.email %></h4>
+            <h4>User ID: <%= @user.id %></h4>
+            <h4>Sign In Count: <%= @user.sign_in_count %></h4>
+            <h4>Last Signed In At: <%= @user.last_sign_in_at %></h4>
+
+            <% if current_user != @user %>
+                <%  if Following.where(:user_id => current_user.id, :followed_id => @user.id).blank? %>
+                    <%= link_to 'Follow', '/users/' + @user.id.to_s + '/follow', :method => :post, :class => "lnk sec" %>
+                <% else %>
+                    <%= link_to 'Unfollow', '/users/' + @user.id.to_s + '/unfollow', :method => :delete, :class => "lnk sec" %>
+                <% end %>
+            <% else %>
+                <%= link_to 'New Event', new_event_path, class: "lnk pri" %>
+            <% end %>
+
+            <% if @user.id == current_user.id %>
+                <%= link_to 'Edit', edit_user_registration_path(@user), class: "lnk sec" %>
+            <% end %>
+
+        </div>
+<!-- Your Attending Events -->
+        <div class="col-md-3">
+            <% if current_user.id == @user.id %>
+                <h3>I'm Attending</h3>
+                <hr>
+                <table >
+                    <tbody>
+                        <% @my_events.each do |event| %>
+                            <tr>
+                                <td><%= event.title %></td>
+                                <td><%= link_to 'Show', event, class: "lnk thi" %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            <% end %>
+        </div>
+<!-- Your Following's Posted Events -->
+        <div class="col-md-3">
+            <% if current_user.id == @user.id %>
+                <h3>Following Events</h3>
+                <hr>
+                <table >
+                    <tbody>
+                        <% @my_followed_events.each do |event| %>
+                            <tr>
+                                <td><%= event.title %></td>
+                                <td><%= link_to 'Show', event, class: "lnk thi" %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            <% end %>
+        </div>
+<!-- Your Following List -->
+        <div class="col-md-3">
+            <% if current_user.id == @user.id %>
+                <h3>People I'm Following</h3>
+                <hr>
+                <table >
+                    <tbody>
+                        <% @my_followeds.each do |user| %>
+                            <tr>
+                                <td><%= user.username%></td>
+                                <td><%= link_to 'Show', user, class: "lnk thi" %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            <% end %>
+        </div>
+
+    </div> <!-- END ROW -->
+</div>

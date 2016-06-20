@@ -1,0 +1,15 @@
+.login {
+	width: 105%;
+	background-color: $color-1;
+	color: white;
+	height: 60px;
+	padding-left: 20px;
+	margin: 0;
+	border-bottom: 1px solid $color-2;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+

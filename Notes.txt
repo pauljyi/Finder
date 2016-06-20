@@ -1,0 +1,6 @@
+if condition around follow button
+	follow
+	or 
+	unfollow
+
+

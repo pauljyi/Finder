@@ -1,0 +1,84 @@
+<!-- STYLES are located in app/assets/stylesheets/users.scss -->
+
+
+ <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+              <% if user_signed_in? %>
+                <%= link_to current_user.username.titleize, current_user, :onclick => "closeNav()" %>
+              <% end %>
+            </li>
+            <li>
+                <% if user_signed_in? %>
+                  <%= image_tag current_user.image.url(:thumb) %>
+                <% else %>
+                  <%= image_tag ("funfinder-logo10.png"), class: "logo-nav" %>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to 'Home', root_path, :onclick => "closeNav()" %>
+            </li>
+            <li>
+              <% if user_signed_in? %>
+                <%= link_to 'View My Profile', current_user, :onclick => "closeNav()" %>
+              <% end %>
+            </li>
+            <li>
+                <%= link_to 'All Events', events_path %>
+            </li>
+        </ul>
+
+<!-- USER SEARCH BAR -->
+        <% if user_signed_in? %>
+            <div id="search_form_users" class="search_users">
+              <form action ='/' method='get'>
+                <input id="word_search_input_users" type="text" placeholder =" Search  Users" name="search_user" />
+                <button type="submit" class="btn btn-default form_button">
+                  <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </form>
+            </div>
+        <% end %>
+    </nav>
+
+<!-- Custom Theme JavaScript -->
+<script>
+    // Closes the sidebar menu
+    var closeNav = function(){
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+}
+
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $(".search_users").toggle();
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if( $(this).attr("href")=="#theCarousel") return; //This is the exception for the carousel
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+</script>

@@ -1,0 +1,167 @@
+// LANDING PAGE //
+//*************//
+.header {
+	color: #fff;
+  margin-top: 3%;
+  .slogan {
+    font-size: 50px;
+    color: #fff;
+    font-weight: 700;
+    font-style: italic;
+    text-shadow: 2px 2px #000;
+  }
+}
+.about {
+  strong {
+    color: $brand-color;
+    font-size: 40px;
+  }
+  .event-list {
+    height: 515px;
+    overflow: scroll;
+    .event-row:nth-child(even) {
+      background-color: rgba(192,192,192,0.5);
+    }
+    td {
+      padding: 10px;
+    }
+  }
+
+  .about-box {
+    height: 515px;
+    overflow: scroll;
+    padding-top: 10%;
+    text-align: center;
+  }
+
+
+  ::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 7px;
+  }
+  ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(0,0,0,.5);
+      -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  }
+}
+
+.front-map{
+  height: 500px;
+  width: 100%;
+  z-index: 0;
+
+	pointer-events: none;
+
+}
+
+
+//EVENTS PAGE//
+//**********//
+
+.event-show {
+  margin-top: 100px;
+}
+
+#show-map {
+  height: 357px;
+  width: 357px;
+	border-radius: 20px;
+}
+
+#create-map{
+	height: 357px;
+  width: 357px;
+}
+
+#event-title-bar {
+	.event-buttons{
+		float: right;
+	}
+
+
+	h1, h2{
+	display: inline-block;
+	}
+}
+
+
+
+.gradient {
+  position: absolute;
+  background-image:
+    -webkit-linear-gradient(
+      rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 1)
+  );
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 1)
+    );
+    width: 97.4%;
+    height: 400px;
+  z-index: -1;
+}
+.event_image img{
+
+  position:absolute;
+  width: 97.4%;
+  height: 400px;
+	z-index: -2;
+}
+
+.middle{
+  margin-top: 410px;
+	// border: 2px outset $brand-color;
+	border-radius: 10px;
+	background-image: linear-gradient(
+    rgba(255, 255, 255, 0.4), rgba(45, 64, 89, 0)
+		);
+}
+
+
+
+// PROFILE PAGE //
+//*************//
+
+.view-profile {
+  margin-top: 100px;
+  width: 100%;
+  .well {
+    background-color: $color-3;
+    border: 2px solid $color-2;
+  }
+  hr {
+    color: $color-2;
+    border: 5px solid;
+  }
+}
+
+
+// NAV BAR //
+//********//
+#sidebar-wrapper.active {
+  background-color: $color-1;
+
+}
+
+.fa-bars {
+  color: $color-3;
+}
+
+
+// SIGN UP PAGE //
+//*************//
+.signup {
+  margin: 150px;
+}
+.paperclip {
+  position: relative;
+  left: 28%;
+}
+
+
+// LOGIN PAGE //
+//*************//
+.login-page {
+  margin-top: 100px;
+}

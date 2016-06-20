@@ -1,0 +1,68 @@
+<!-- Header -->
+<header id="top" class="header">
+    <div class="text-vertical-center">
+		<%= image_tag ("funfinder-logo4.png"), :class => "logo-banner" %>
+        <h3 class="slogan">"fun, found easy..."</h3>
+        <br>
+
+<!-- THIS IS THE EVENT CAROUSEL -->
+
+		<div class="container">
+			<div class="col-md-12">
+				<div class="carousel slide multi-item-carousel" id="theCarousel">
+				  <div class="carousel-inner">
+
+				  	<% @top_event.each do |event| %>
+					    <div class="item active">
+							<div class="col-xs-4 event-featured well">
+								<div class="well event-text">
+					    		<a href="events/<%= event.id %>"><h2>FEATURED</h2></a>	
+					    		<hr>
+					    		<a href="events/<%= event.id %>"><h3><%= event.title %></h3></a>
+					    										</div>
+
+								<%= link_to image_tag(event.image.url(:large), :class => "img-responsive"), event %>
+							</div>
+						</div>
+					<% end %>
+
+				    <% @events.each do |event| %>
+				    	<div class="item">
+				    		<div class="col-xs-4 event-box well">
+				    			<div class="well event-text">
+					    		<h2><a href="events/<%= event.id %>"><%= event.title %></a></h2>
+					    	</div>
+				    			<%= link_to image_tag(event.image.url(:large), :class => "img-responsive"), event %>
+				    		</div>
+				    	</div>
+				    <% end %>
+
+				  </div>
+				  <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+				  <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<script>
+	$('#theCarousel').carousel({
+	  interval: false
+	})
+
+	$('.multi-item-carousel .item').each(function(){
+	  var next = $(this).next();
+	  if (!next.length) {
+	    next = $(this).siblings(':first');
+	  }
+	  next.children(':first-child').clone().appendTo($(this));
+	  
+	  if (next.next().length>0) {
+	    next.next().children(':first-child').clone().appendTo($(this));
+	  }
+	  else {
+	  	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+	  }
+	});
+</script>

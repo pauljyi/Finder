@@ -1,0 +1,56 @@
+
+    <!-- Services -->
+    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <section id="services" class="services bg-primary" >
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="row">
+                    <h2>ALL EVENTS</h2>
+                    <hr class="small">
+
+                    <% if user_signed_in? %>
+                        <%= link_to 'New Event', new_event_path, :class => "lnk event_list pri" %>
+                    <% end %>
+
+                    <table class="event_list">
+
+                        <thead>
+                          <tr>
+                            <th><%= sortable "title" %></th>
+                            <th><%= sortable "location" %></th>
+                            <th><%= sortable "start_date" %></th>
+                            <th><%= sortable "end_date" %></th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                            <% @events.each do |event| %>
+                                <tr>
+                                    <td><%= event.title %></td>
+                                    <td><%= event.location %></td>
+                                    <td><%= event.start_date %></td>
+                                    <td><%= event.end_date %></td>
+
+                                    <% if user_signed_in? %>
+                                        <td><%= link_to 'Show', event, class: "lnk thi" %></td>
+                                    <% end %>
+                                </tr>
+                            <% end %>
+
+                        </tbody>
+
+                    </table>
+
+
+
+
+                    </div>
+                    
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>

@@ -1,0 +1,13 @@
+    <!-- Call to Action -->
+    <aside class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>It's never too late to start finding fun!</h2>
+                    <% if !user_signed_in? %>
+                    <%= link_to "Get Started!", new_user_registration_path, class: "lnk pri" %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </aside>

@@ -1,0 +1,41 @@
+<!-- About -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Welcome to <strong>FunFinder</strong></h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 about-box">
+                <h2>Sort By</h2>
+                <hr>
+                <h3 class="sort"><%= sortable "title" %></h3>
+                <h3 class="sort"><%= sortable "start_date" %></h3>
+                <h3 class="sort"><%= sortable "end_date" %></h3>
+            </div>
+            <div class="col-md-4 text-center">
+                <%= image_tag("funfinder-logo-phone.png") %>
+            </div>
+            <div class="col-md-4 event-list">
+
+                    <table>
+                        <tbody>
+                            <% @events.each do |event| %>
+                                <tr class="event-row">
+                                    <td><%= link_to event.title, event %></td>
+                                    <td><%= event.start_date %></td> 
+                                    <td><%= event.end_date %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

@@ -1,0 +1,12 @@
+<div class="container event-show">
+	<div id="event-title-bar" class="row">
+    	<h1>Editing Event</h1>
+			<div class="event-buttons">
+				<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: "lnk dan" %>
+				<%= link_to 'Back', @event, class: "lnk def" %>
+			</div>
+	</div>
+
+    <%= render 'form' %>
+
+</div>

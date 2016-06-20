@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FunFinder</title>
+
+  <script type="text/javascript" src='https://maps.googleapis.com/maps/api/js?v=3&libraries=places'></script>
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application', 'events' %>
+  <%= csrf_meta_tags %>
+<!-- Tab Icon -->
+  <link rel="shortcut icon" type="<%= asset_path 'funfinder-logo10.png' %>" href="<%= asset_path 'funfinder-logo10.png' %>" />
+
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="row login">
+      <%= link_to image_tag("funfinder-logo10.png", class: "logo"), root_path %>
+      <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.username.titleize %></strong>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "lnk def" %>
+
+        <div id= "search_form">
+          <form action ='/' method='get' class='searchform'>
+            <input id="word_search_input" type="text" placeholder=" Search  Events" name="search_string" />
+            <button type="submit" class="btn btn-default form_button">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </form>
+        </div>
+
+      <% else %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "lnk pri" %>
+        <%= link_to "Login", new_user_session_path, class: "lnk pri" %>
+
+        <div id="search_form">
+          <form action ='/' method='get'>
+            <label for="word_search_input"></label>
+            <input id="word_search_input" type="text" placeholder =" Search  For  An  Event" name="search_string" />
+            <button type="submit" class="btn btn-default form_button">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </form>
+        </div>
+
+      <% end %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+  </div>
+
+<!-- NAVIGATION -->
+<%= render 'navigation' %>
+
+
+
+<%= yield %>
+
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tag.name %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @tag.event %>
+</p>
+
+<h2>Edit Tags</h2>
+<%= f.fields_for :tags do |tag| %>
+  <div class="tag_fields">
+    <div class="field">
+      <%= tag.text_field :name %>
+      <%= tag.check_box :_destroy %>
+      <%= tag.label :_destroy, 'remove' %>
+    </div>
+  </div>
+  <% end %>
+
+<%= link_to 'Edit', edit_tag_path(@tag), class: "lnk sec" %> |
+<%= link_to 'Back', tags_path, class: "lnk def" %>

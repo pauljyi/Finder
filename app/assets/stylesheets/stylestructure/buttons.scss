@@ -1,0 +1,53 @@
+// ALL BUTTON STYLES GO HERE
+.lnk {
+  border: 2px solid;
+  border-radius: 10px;
+  font-family: sans-serif;
+  vertical-align: middle;
+  font-size: 15px;
+  line-height: 60px;
+  color: gray;
+  padding: 5px;
+  margin: 5px;
+  text: {
+    transform: uppercase;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.def {
+  &:hover {
+    border: 2px solid gray;
+    color: gray;
+  }
+}
+
+.pri {
+  &:hover {
+    border: 2px solid $brand-color;
+    color: $brand-color;
+  }
+}
+
+.sec {
+  &:hover {
+    border: 2px solid $color-1;
+    color: $color-1;
+  }
+}
+
+.thi {
+  &:hover {
+    border: 2px solid $color-2;
+    color: $color-2;
+  }
+}
+
+.dan {
+  &:hover {
+    border: 2px solid $brand-color;
+    color: $brand-color;
+  }
+}

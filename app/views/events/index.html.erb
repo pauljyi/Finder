@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<!-- ISOTOPE IMAGE FILTERING GRID -->
+<!-- **************************** -->
+    <div id="tf-works">
+      <div class="row text-center">
+        <% if user_signed_in? %>
+          <%= link_to 'New Event', new_event_path, class: "lnk pri" %>
+        <% end %>
+      </div>
+        <div class="container col-md-12"> <!-- Container -->
+            <div class="section-title text-center center">
+                <div class="clearfix"></div>
+            </div>
+            <div class="space"></div>
+
+<!-- ISOTOPE DATA FILTER SELECTION BY TAG -->
+            <div class="categories">
+                <ul class="cat">
+                    <li class="pull-left"><h4>Filter by Type:</h4></li>
+                    <li class="pull-right">
+                        <ol class="type">
+                            
+                            <li><a href="#" data-filter="*" class="active">All</a></li>
+
+                            <% @tag_names.each do |tag| %>
+                              <li><a href="#" data-filter=".<%= tag %>"><%= tag %></a></li>
+                            <% end %>
+                        </ol>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+
+<!-- BEGIN EVENTS GRID -->
+            <div id="lightbox" class="row">
+              <% @events.each do |event| %>
+                  <div class="col-sm-6 col-md-3 col-lg-2 
+
+                  <% event.tags.each do |tag| %>
+                  <%= tag.name %>
+                  <% end %>">
+
+                    <div class="portfolio-item">
+                      <a href="events/<%= event.id %>" >
+                      <div class="hover-bg">
+                        <div class="hover-text">
+                            <h4><%= event.title %></h4>
+                            <small><%= event.start_date %></small>
+                            <div class="clearfix"></div>
+                        </div>
+                      </a>
+                        <%= link_to image_tag(event.image.url(:large), :class => "img-responsive"), event %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+
+            </div>
+        </div>
+    </div>
+ 

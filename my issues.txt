@@ -1,0 +1,26 @@
+**ASK ABOUT Database Environments**
+*** OPEN DATA . GOV ***
+
+================
+
+prevent default on sort landing page
+
+
+Stylestructure=> build folder for page layouts
+		>> Refactor stylesheets so
+
+HR styles
+
+
+WRITE SEED FOR HEROKU
+	>must use url images (?)
+——
+
+Test While Not Signed In
+
+——
+
+
+
+Add Facebook and twitter share buttons per event
+Add Meetup API 
